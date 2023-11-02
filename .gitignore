@@ -4,3 +4,4 @@ logs
 cp-0040*
 .ipynb_checkpoints
 dataset_selected
+cache
