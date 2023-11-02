@@ -1,0 +1,83 @@
+body {
+    background-image: url(/static/figures/ori.png);
+    background-size: cover;
+}
+h1 {
+    margin-top: -10px;
+    text-align: center;
+}
+.established {
+    text-align: center;
+    margin-top: -20px;
+}
+main {
+    width: 90%;
+    background-color: #F4E0B9;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 20px;
+    /* min-width: 900px; */
+}
+.plot {
+    margin-left: 10%;
+    margin-top: 0%;
+}
+.plot p {
+    width: 500px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: larger;
+    text-align: center;
+}
+.image {
+    /* background-color:grey; */
+    display: inline-block;
+    vertical-align: top;
+    /* text-align: left; */
+    width: 49%;
+    min-height: 500px;
+    max-height: 800px;
+}
+.info {
+    display: inline-block;
+    vertical-align: top;
+    /* text-align: right; */
+    width: 49%
+}
+canvas {
+  background-color: #7D7463;
+  border: 10px #A8A196 solid;
+}
+.btns{
+    text-align: center;
+  width: 520px;
+  height: 100%;
+  background-color: #b3a689;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* padding: 20px; */
+}
+button{
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+}
+.vertical {
+    width: 40px;
+    height: 80px;
+    font-size: large;
+    writing-mode: vertical-rl;  /* 设置文字垂直排列 */
+    text-orientation: upright; /* 设置文字排列方向为正向 */
+    white-space: nowrap;       /* 防止文字换行 */
+}
+a {
+    color: #FE0000
+}
+img {
+    width: 100%;
+}
+td {
+    text-align: center;
+    width: 20%;
+}

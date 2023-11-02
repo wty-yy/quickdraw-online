@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-size: large;
+                text-align: center;
+            }
+            table {
+                width: 1000px;
+            }
+            .red {
+                color: red;
+            }
+        </style>
+        <meta charset="utf-8">
+        <title>全局状态</title>
+    </head>
+    <body>
+        <div>
+            <h1>简笔画图片筛选系统</h1>
+        </div>
+        <form action="/" method="post">
+            登入开始筛选，请输入您的中文名字：<input type="text" name="name">
+            <button name="button">登入</button>
+        </form>
+        {% if not login_check %}
+        <p class="red">登录信息有误</p>
+        {% endif %}
+        <br>
+        <strong >已筛选出的图片总数/目标数量: {{mark['selected']}}/{{infos['total_target']}}
+            (进度{{(mark['selected']/infos['total_target']*100) | round(2)}}%)，
+            已显示图片总数: {{mark['total']}}，
+            筛选比例: {{selected_rate}}%</strong><br>
+        <div class="container">
+            <table border="1" align="center">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>已筛选图片</th>
+                        <th>已显示图片</th>
+                        <th>筛选比例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, num in mark.items() %}
+                    {% if name != "total" and name != "selected"%}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ num[0] }}</td>
+                        <td>{{ num[1] }}</td>
+                        {% if num[1] != 0 %}
+                            <td>{{ (num[0]/num[1]*100) | round(2) }}%</td>
+                        {% else %}
+                            <td>0%</td>
+                        {% endif %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <strong>注意：</strong>不要F5刷新图片选择界面，
+        （不要点重新提交的按钮，否则会将上次的图片筛选序号作为当前的图片筛选序号）<br>
+        直接点浏览器输入网址的位置，然后回车就能刷新界面了<br><br>
+        <strong>备注信息：已完成全部筛选标签{{infos['complete_count']}}个，
+            如果筛选个数超过500个就会停止现实该类图片</strong><br>
+        <table border="1" align="center">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>类别（英文）</th>
+                    <th>类别（中文）</th>
+                    <th>筛选数量（目标筛选500个）</th>
+                    <th>进度</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for idx, (num, label, label_cn, rate) in infos['num_label'] %}
+                <tr>
+                    <td>{{ idx+1 }}</td>
+                    <td>{{ label }}</td>
+                    <td>{{ label_cn }}</td>
+                    <td>{{ num }}</td>
+                    <td>{{ rate }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        {% if infos['complete_all_flag'] %}
+            <img src="{{url_for('static', filename='congratulation.png')}}" width="800px">
+        {% else %}
+            <img src="{{url_for('static', filename='encourage.jpg')}}" width="800px">
+        {% endif %}
+    </body>
+</html>

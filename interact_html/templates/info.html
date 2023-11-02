@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>支持识别的全部类型</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      p {
+        font-size: larger;
+      }
+      td {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p><strong>模型支持识别的全部类型（总共210个类别）</strong></p>
+      <table border="1" align="center">
+        {% for labels in table %}
+        <tr>
+        {% for en, cn in labels %}
+        <td>{{en}}<br>{{cn}}</td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+  </body>
+</html>

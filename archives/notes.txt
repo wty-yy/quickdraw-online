@@ -1,0 +1,25 @@
+7.13. morning
+当前删掉的标签
+mermaid
+rainbow
+skyscraper
+bridge
+dog *
+hurricane *
+cello *
+修改的翻译：
+bed 床 *
+fish 鱼 *
+fork 叉子 *
+basket 篮子*
+hamburger 汉堡*
+moon 月亮*
+face 脸*
+tennis racquet 网球拍*
+anvil 铁砧*
+hot tub 热浴缸*
+computer 台式电脑*
+see saw 翘翘板*
+sink 水槽*
+sweater 毛衣*
+带*号的就是当前还未更新的信息，等下次服务器重启会更新

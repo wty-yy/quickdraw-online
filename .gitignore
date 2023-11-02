@@ -1,0 +1,6 @@
+__pycache__
+cnn_model
+logs
+cp-0040*
+.ipynb_checkpoints
+dataset_selected

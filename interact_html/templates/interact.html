@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你画我猜 Quick Draw</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main>
+      <h1>你画我猜 Quick Draw</h1>
+      <p class="established">XJTU</p>
+      <div class="image">
+        <div class="plot">
+            <p>请在下方画布中尽可能体现出您想绘制东西的特点，</p>
+            <p>并且请<strong>不要画的太小</strong>，<strong>画笔不要画到画版外面。</strong></p>
+            <canvas id="canvas"></canvas>
+            <div class="btns">
+                <label>
+                    画笔大小
+                    <input value="20" id="size" max="30" min="10" type="range">
+                </label> 
+            
+                <label>
+                    <button id="reback" data-type="back">撤销</button>
+                    <button id="clear">清空</button>
+                </label>
+            </div>
+        </div>
+      </div>
+      <div class="info">
+        <table id="table" border="1" width="100%" align="center">
+          <thead>
+            <tr><th colspan="3">
+              Deeper CNN Model 预测结果
+            </th></tr>
+            <tr>
+              <th>排名</th>
+              <th>类别</th>
+              <th>置信度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>以下是我们为您提供的一些绘画参考（来自模型数据集），</p>
+        <p>查看模型支持识别的全部类型<a href="/info/" target="_blank">请点这里</a>。</p>
+        <button id="refresh">刷新下述图片</button>
+        <table border="1" width="90%" align="center" id="show">
+          <tbody>
+          {% for row in table %}
+          <tr>
+          {% for en, cn, path in row %}
+          <td>{{en}}<br>{{cn}}<br>
+            <img src="{{path}}" alt="img1">
+          </td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script src="/static/socket.io.min.js"></script>
+    <script src="/static/interact.js"></script>
+  </body>
+</html>
